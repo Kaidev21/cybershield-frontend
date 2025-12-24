@@ -91,6 +91,47 @@ const showDetails = (alert) => {
   selectedAlert.value = alert
 }
 
+const handleAcknowledge = (alertId) => {
+  emit('acknowledge', alertId)
+  selectedAlert.value = null
+}
+
+const handleUnacknowledge = (alertId) => {
+  // Émettre l'événement pour réactiver l'alerte
+  emit('unacknowledge', alertId)
+  selectedAlert.value = null
+}
+
+const getSeverityIcon = (severity) => {
+  const icons = {
+    critical: AlertOctagon,
+    high: AlertTriangle,
+    medium: AlertCircle,
+    low: Info
+  }
+  return icons[severity] || AlertCircle
+}
+
+const getSeverityLabel = (severity) => {
+  const labels = {
+    critical: 'Critique',
+    high: 'Élevée',
+    medium: 'Moyenne',
+    low: 'Faible'
+  }
+  return labels[severity] || severity
+}
+
+const getTypeLabel = (type) => {
+  const labels = {
+    intrusion: 'Intrusion',
+    vulnerability: 'Vulnérabilité',
+    anomaly: 'Anomalie',
+    system: 'Système'
+  }
+  return labels[type] || type
+}
+
 const getAlertIcon = (type) => {
   const icons = {
     intrusion: Shield,
