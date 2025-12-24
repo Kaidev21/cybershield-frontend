@@ -1,7 +1,8 @@
 <template>
   <aside class="sidebar">
     <div class="sidebar-header">
-      <Shield class="logo-icon" />
+<!--      <Shield class="logo-icon" />-->
+      <img class="logo-icon" src="/shield-logo.svg"  alt="CyberShield Secure logo"/>
       <div class="logo-text">
         <h2>CyberShield</h2>
         <span>v2.2</span>
